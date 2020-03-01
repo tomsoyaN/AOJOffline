@@ -4,9 +4,18 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AOJ_App"
+        xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="MainWindow" Height="584.095" Width="800">
+    <Grid Margin="0,0,0.333,-19.333">
+        <avalonEdit:TextEditor 
+            x:Name="configEdit"
+            Document="{Binding ConfigurationDoc,Mode=TwoWay}"
+            SyntaxHighlighting="C#"
+            ShowLineNumbers="True"
+            FontFamily="Consolas" FontSize="10Pt" Margin="0,26,73,279.333" HorizontalAlignment="Right" Width="681"/>
+        <Button Content="Button" Height="64" Margin="39,0,500,161.333" VerticalAlignment="Bottom"/>
+        <Button Content="Button" HorizontalAlignment="Left" Height="64" Margin="491,0,0,161.333" VerticalAlignment="Bottom" Width="229"/>
+
     </Grid>
 </Window>
