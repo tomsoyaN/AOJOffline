@@ -53,6 +53,7 @@ namespace AOJ_App
             {
                 completewind = new CompletionWindow(editor.TextArea);
                 IList<ICompletionData> data = completewind.CompletionList.CompletionData;
+                data.Add(new CompletionData("test1"));
                 completewind.Show();
                 completewind.Closed += delegate
                 {
