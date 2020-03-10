@@ -23,6 +23,13 @@ namespace AOJ_App
             editor.TextArea.TextEntering += TextArea_TextEntering;
         }
 
+        private void insertText(int pos, string tex)
+        {
+            editor.Select(pos, 0);
+            editor.SelectedText = tex;
+            editor.SelectionLength = 0;
+        }
+
         private void TextArea_TextEntering(object sender, TextCompositionEventArgs e)
         {
             if (e.Text.Length > 0 && completewind != null)
@@ -31,7 +38,6 @@ namespace AOJ_App
                 {
                     completewind.CompletionList.RequestInsertion(e);
                 }
-
             }
         }
 
@@ -47,6 +53,13 @@ namespace AOJ_App
                 {
                     completewind = null;
                 };
+
+            } else if (e.Text == "(")
+            {
+                insertText(editor.SelectionStart, ")");
+            } else if (e.Text == "{")
+            {
+                insertText(editor.SelectionStart, "\n}");
             }
         }
 
