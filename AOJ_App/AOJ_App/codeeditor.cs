@@ -18,6 +18,7 @@ namespace AOJ_App
         private Block txts;
         private Block curblock;
         private const int nil = Int32.MinValue;
+        private int length = 0;
         public codeeditor(ICSharpCode.AvalonEdit.TextEditor e)
         {
             editor = e;
@@ -46,12 +47,13 @@ namespace AOJ_App
                     completewind.CompletionList.RequestInsertion(e);
                 }
             }
+            if(e.Text == "\t") System.Diagnostics.Debug.WriteLine("aaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
         }
 
         private async void TextArea_TextEntered(object sender, TextCompositionEventArgs e)
         {
             curblock = GetCurBlock(editor.SelectionStart-1);
-            txts.UpdatePos(e.Text.Length, editor.SelectionStart-1);
+            txts.UpdatePos(editor.Document.TextLength - length, editor.SelectionStart-1);
             if (e.Text == ".")
             {
                 completewind = new CompletionWindow(editor.TextArea);
@@ -68,17 +70,25 @@ namespace AOJ_App
                 insertText(editor.SelectionStart, ")");
             } else if (e.Text == "{")
             {
-                txts.UpdatePos(3, editor.SelectionStart-1);
-                txts.UpdateLineNum(editor.SelectionStart-1); txts.UpdateLineNum(editor.SelectionStart-1);
-                curblock.blocks.Add(new Block(curblock, editor.SelectionStart - 1, editor.SelectionStart+2, GetCurrentLineNum(), GetCurrentLineNum()+2, curblock.depth + 1));
-                insertText(editor.SelectionStart, "\n\n}");
+                txts.UpdatePos(3+curblock.depth, editor.SelectionStart-1);
+                txts.UpdateLineNum(2,editor.SelectionStart-1);
+                curblock.blocks.Add(new Block(curblock, editor.SelectionStart - 1, editor.SelectionStart+2+curblock.depth, GetCurrentLineNum(), GetCurrentLineNum()+2, curblock.depth + 1));
+                string tab = "";
+                for (int i = 0; i < curblock.depth;++i) tab += '\t';
+                insertText(editor.SelectionStart, "\n\n"+tab+"}");
             } else if (e.Text == "\n")
             {
-                txts.UpdateLineNum(editor.SelectionStart-1);
+                txts.UpdatePos(GetPrevTabCount(), editor.SelectionStart - 1);
+                txts.UpdateLineNum(1,editor.SelectionStart-1);
             } else if (e.Text == "$")
             {
                 System.Diagnostics.Debug.WriteLine(editor.SelectionStart);
+            } else if(e.Text == "\t")
+            {
+                System.Diagnostics.Debug.WriteLine("aaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+                txts.UpdatePos(1, editor.SelectionStart - 1);
             }
+            length = editor.Document.TextLength;
         }
         private int GetCurrentLineNum()
         {
@@ -95,6 +105,13 @@ namespace AOJ_App
             System.Diagnostics.Debug.WriteLine(editor.SelectionStart);
         }
 
+        private int GetPrevTabCount()
+        {
+            int pos = editor.SelectionStart - 2, cnt = 0;
+            while (editor.Text[pos] != '\n' && pos > 0) pos--;
+            while(editor.Text[++pos] == '\t') cnt++;
+            return cnt;
+        }
         private Block GetCurBlock(int pos)
         {
             bool flag = true ;

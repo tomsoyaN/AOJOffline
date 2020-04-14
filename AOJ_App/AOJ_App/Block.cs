@@ -27,11 +27,6 @@ namespace AOJ_App
             depth = d;
         }
 
-        public void Update(int c,int pos)
-        {
-            UpdatePos(c,pos);
-            UpdateLineNum(pos);
-        }
         public void UpdatePos(int c,int pos)
         {
             if (parent != null)
@@ -45,16 +40,16 @@ namespace AOJ_App
             }
             
         }
-        public void UpdateLineNum(int pos)
+        public void UpdateLineNum(int c,int pos)
         {
             if (parent != null)
             {
-                if (pos <= startpos) startline++;
-                if (pos <= endpos) endline++;
+                if (pos <= startpos) startline+=c;
+                if (pos <= endpos) endline+=c;
             }
             foreach (var b in blocks)
             {
-                b.UpdateLineNum(pos);
+                b.UpdateLineNum(c,pos);
             }
 
         }

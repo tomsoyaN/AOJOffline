@@ -16,7 +16,7 @@
 				Name="editor"
 				FontFamily="Consolas"
 				FontSize="10pt"
-				SyntaxHighlighting="C++" Height="462" VerticalAlignment="Top" Grid.ColumnSpan="2" ShowLineNumbers="True"
+				SyntaxHighlighting="C++" Height="462" VerticalAlignment="Top" Grid.ColumnSpan="2" ShowLineNumbers="True" 
 			>Welcome to AvalonEdit!
         </avalonEdit:TextEditor>
         <Button Content="Button" Height="64" Margin="39,0,500,43" VerticalAlignment="Bottom" Grid.ColumnSpan="2"/>
