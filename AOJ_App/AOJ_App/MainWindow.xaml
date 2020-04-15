@@ -3,6 +3,13 @@
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
   xmlns:mui="http://firstfloorsoftware.com/ModernUI"
   Title="MainWindow" Height="350" Width="525">
+    <mui:ModernWindow.MenuLinkGroups>
+        <mui:LinkGroup DisplayName="group 1" >
+            <mui:LinkGroup.Links>
+                <mui:Link DisplayName="link 1" Source="/Design/Page1.xaml" />
+                <mui:Link DisplayName="link 2" />
+                <mui:Link DisplayName="link 3" />
+            </mui:LinkGroup.Links>
+        </mui:LinkGroup>
+    </mui:ModernWindow.MenuLinkGroups>
 </mui:ModernWindow>
-
-
