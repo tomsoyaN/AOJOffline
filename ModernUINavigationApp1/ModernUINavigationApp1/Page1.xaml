@@ -1,0 +1,69 @@
+﻿<Page x:Class="ModernUINavigationApp1.Page1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="1000"
+             Title ="Page1">
+    <Grid Style="{StaticResource ContentRoot}">
+        <StackPanel MinWidth="200" Height="646">
+            <TextBlock Text="BASIC PAGE" Style="{StaticResource Heading2}" />
+            <TextBlock Text="Content goes here" />
+            <TextBlock Margin="10,10,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Text="Page1"
+                   TextWrapping="Wrap" RenderTransformOrigin="11.572,7.14" />
+            <!--
+        <Button x:Name="btnNavigateWithUri_Click"
+                Background="LightBlue" 
+                Margin="10,30,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Click="btnNavigateWithUri_Click"
+                Content="Uriで遷移" />
+-->
+            <Button x:Name="btnNavigateWithObject"
+                Margin="10,54,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Click="BtnNavigateWithObject_Click"
+                Content="インスタンスを生成して遷移" />
+            <Button Content="page2" HorizontalAlignment="Left" 
+                Margin="114,209,0,0" VerticalAlignment="Top" Width="75"  />
+
+
+
+            <TextBlock Margin="10,78,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   TextWrapping="Wrap">
+            <Run Text="リンク："/>
+            <Hyperlink NavigateUri="Page2.xaml">
+                <Run Text="Page2へ遷移します"/>
+            </Hyperlink>
+            </TextBlock>
+            <Label Content="ログイン" HorizontalAlignment="Left" Margin="444,184,0,0"
+               VerticalAlignment="Top" Height="51" Width="104" FontSize="30"/>
+            <TextBox HorizontalAlignment="Left" Height="33" Margin="376,286,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="241"/>
+            <TextBox HorizontalAlignment="Left" Height="33" Margin="376,365,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="241"/>
+            <Label Content="UserID" HorizontalAlignment="Left" Margin="458,257,0,0"
+            VerticalAlignment="Top" Height="51" Width="77" FontSize="20"/>
+            <Label Content="password" HorizontalAlignment="Left" Margin="444,324,0,0"
+            VerticalAlignment="Top" Height="51" Width="115" FontSize="20"/>
+            <Button x:Name="btnLogin" 
+                Content="go" 
+                HorizontalAlignment="Center" 
+                Margin="449,422,452,0"
+                VerticalAlignment="Top" 
+                Width="99" Height="37" 
+                ClickMode="Press"
+                Click="BtnNavigateWithObject_Click"/>
+
+
+        </StackPanel>
+        
+    </Grid>
+</Page>

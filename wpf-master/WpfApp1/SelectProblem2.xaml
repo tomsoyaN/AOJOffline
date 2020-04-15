@@ -1,0 +1,24 @@
+﻿<Page x:Class="WpfApp1.SelectProblem2"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp1"
+      mc:Ignorable="d" 
+      d:DesignHeight="700"
+      d:DesignWidth="1000"
+      Title="SelectProblem">
+
+    <Grid>
+        <Menu HorizontalAlignment="Left" Height="100" Margin="250,349,0,0" VerticalAlignment="Top" Width="100"/>
+        <ListView HorizontalAlignment="Left" Height="621" Margin="10,69,0,0" VerticalAlignment="Top" Width="980">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label Content="問題一覧" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="54" Width="134" FontSize="30"/>
+        <Button Content="ログアウト" HorizontalAlignment="Left" Margin="846,10,0,0" VerticalAlignment="Top" Width="125" Height="54" FontSize="25" />
+    </Grid>
+</Page>
