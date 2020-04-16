@@ -24,5 +24,15 @@ namespace AOJ_App.Design
         {
             InitializeComponent();
         }
+
+        private void Btn_Submit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Btn_Debug_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
