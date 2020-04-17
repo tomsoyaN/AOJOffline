@@ -23,7 +23,7 @@
 
         <mui:BBCodeBlock BBCode="Icons courtesy of [url=http://modernuiicons.com/]Modern UI Icons[/url]" Margin="630,10,24,406" />
 
-        <mui:ModernButton Name ="btn_Submit" Content="Submit"  Margin="668,396,10,10" Click="Btn_Submit_Click" />
+        <mui:ModernButton Name ="btn_Submit" Content="Submit"  Margin="668,396,10,10" Click="Btn_Submit_ClickAsync" />
         <mui:ModernButton Name ="btn_Debug" Content="Debug"  Margin="523,396,155,10" Click="Btn_Debug_Click" />
 
     </Grid>

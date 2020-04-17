@@ -14,9 +14,9 @@ namespace AOJ_App.Network
         {
             obj = new API();
         }
-        public async Task<bool> Login(string user,string password)//ログインメソッド@tom
+        public async Task<bool> Login(string user, string password)//ログインメソッド@tom
         {
-            
+
             var result = await obj.LoginAsync(user, password);
             if (result == "[{\"id\":1401,\"code\":\"USER_NOT_FOUND_ERROR\",\"message\":\"The user identified by  and the password is not found.\"}]")
             {
@@ -61,18 +61,16 @@ namespace AOJ_App.Network
             ***/
         }
 
-        async Task Submmission()//サブミッションメソッド@tom
+        public async Task<int> Submmission()//サブミッションメソッド@tom
         {
             var self = await obj.SelfAsync();
             Console.WriteLine(self);
             var submission = await obj.SubmissionAsync("ITP1_1_A", "Python", "print('Hello World')");
             Console.WriteLine(submission);
-
             var Judge = await obj.JudgeAsync((4252705));
             Console.WriteLine(Judge);
-
-            Console.ReadKey();
-        }
+            return 1;
         }
     }
+}
 

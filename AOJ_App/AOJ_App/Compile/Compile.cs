@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace AOJ_App.Compile
 {
-    class Compile
+    class debugger
     {
-        Compile()
+        public debugger()
         {
 
         }
