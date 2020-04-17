@@ -7,18 +7,20 @@ using System.Text;
 using System.Threading.Tasks;
 namespace AOJ_App.Network
 {
-    class API//HTTP通信オブジェクト定義クラス
+    class API//HTTP通信
     {
         //プログラム作成参考( https://teratail.com/questions/251616)
         private static readonly HttpClient client = new HttpClient(new HttpClientHandler())//{ UseCookies = true, })
         {
-            BaseAddress = new Uri("https://judgeapi.u-aizu.ac.jp"),
+            BaseAddress = new Uri("https://judgeapi.u-aizu.ac.jp/"),
             //BaseAddress = new Uri("https://judgedat.u-aizu.ac.jp/"), //testcase用
         };
 
         public async Task<string> LoginAsync(string id, string pass)
         {
+            //var json = "{\"id\":\"aa\",\"password\":\"aa\"}";
             var json = $@"{{""id"":""{id}"",""password"":""{pass}""}}";
+
             Debug.WriteLine(json);
 
             var content = new StringContent(json, Encoding.UTF8, "application/json");
@@ -30,8 +32,8 @@ namespace AOJ_App.Network
                 var cookie = response.Headers.GetValues("Set-Cookie").First();
                 Console.WriteLine($"cookie --> {cookie}\n");
             }
-
             return await response.Content.ReadAsStringAsync();
+          
         }
 
         public async Task<string> SubmissionAsync(string problem_id, string language, string code)

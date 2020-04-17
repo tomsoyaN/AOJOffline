@@ -23,7 +23,7 @@ namespace AOJ_App.Design
         public Page1()
         {
             InitializeComponent();
-            editor
+            var peditor = new codeeditor(editor);
         }
 
         private void Btn_Submit_Click(object sender, RoutedEventArgs e)
