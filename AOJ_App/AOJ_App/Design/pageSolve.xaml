@@ -1,0 +1,30 @@
+﻿<Page x:Class="AOJ_App.Design.Page1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AOJ_App.Design"
+      xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+      xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Page1">
+
+
+    <Grid>
+        <avalonEdit:TextEditor
+				Name="editor"
+				FontFamily="Consolas"
+				FontSize="10pt"
+				SyntaxHighlighting="C++" Height="325" VerticalAlignment="Top" ShowLineNumbers="True" Margin="10,57,0,0" 
+			>
+        </avalonEdit:TextEditor>
+        <TextBlock Text="Solve Problem" Style="{StaticResource Heading2}" Margin="10,20,431,398" />
+
+        <mui:BBCodeBlock BBCode="Icons courtesy of [url=http://modernuiicons.com/]Modern UI Icons[/url]" Margin="630,10,24,406" />
+
+        <mui:ModernButton Name ="btn_Submit" Content="Submit"  Margin="668,396,10,10" Click="Btn_Submit_ClickAsync" />
+        <mui:ModernButton Name ="btn_Debug" Content="Debug"  Margin="523,396,155,10" Click="Btn_Debug_Click" />
+
+    </Grid>
+</Page>
