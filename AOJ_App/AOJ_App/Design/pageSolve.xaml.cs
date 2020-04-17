@@ -26,17 +26,17 @@ namespace AOJ_App.Design
         public Page1()
         {
             InitializeComponent();
-            peditor = new codeeditor(editor);
-            pdebugger = new debugger();
+            peditor = new codeeditor(editor);//editor@tom
+            pdebugger = new debugger();//コンパイラ部のやつ@tom
             
         }
 
-        private async void Btn_Submit_ClickAsync(object sender, RoutedEventArgs e)
+        private async void Btn_Submit_ClickAsync(object sender, RoutedEventArgs e)//提出ボタン@tom
         {
             var result = await global.net.Submmission();
         }
 
-        private void Btn_Debug_Click(object sender, RoutedEventArgs e)
+        private void Btn_Debug_Click(object sender, RoutedEventArgs e)//コンパイラボタン@tom
         {
             pdebugger.Execute(editor.Text);
         }

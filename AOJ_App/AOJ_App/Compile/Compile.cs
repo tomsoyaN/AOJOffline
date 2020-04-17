@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace AOJ_App.Compile
 {
-    class debugger
+    class debugger//コンパイラ部のファイル@tom
     {
-        public debugger()
+        public debugger()//コンストラクタ@tom
         {
 
         }
 
-        public void Execute(string text)
+        public void Execute(string text)//コンパイラ本体?@tom
         {
             //エディタの文をcppファイルとして保存
             //文字コードの指定

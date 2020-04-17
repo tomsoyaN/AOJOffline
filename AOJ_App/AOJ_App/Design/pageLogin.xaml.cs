@@ -27,7 +27,7 @@ namespace AOJ_App.Design
             
         }
 
-        private async void Btn_Login_ClickAsync(object sender, RoutedEventArgs e)
+        private async void Btn_Login_ClickAsync(object sender, RoutedEventArgs e)//ログインボタン@tom
         {
             var login = await global.net.Login(txtID.Text,txtPass.Text);
             if (login)
