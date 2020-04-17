@@ -9,29 +9,25 @@ namespace AOJ_App.Network
     class network//AOJとの通信専用クラス@tom
     {
         public API obj;//通信オブジェクト用フィールド@tom
-
-        network()//コンストラクタ@tom
+        static public network net;
+        public network()//コンストラクタ@tom
         {
             obj = new API();
         }
-        async Task Login()//ログインメソッド@tom
+        public async Task<bool> Login(string user,string password)//ログインメソッド@tom
         {
-            Console.Write("username >>>");
-            var user = Console.ReadLine();
-
-            Console.Write("password >>>");
-            var password = Console.ReadLine();
-
             
             var result = await obj.LoginAsync(user, password);
             if (result == "[{\"id\":1401,\"code\":\"USER_NOT_FOUND_ERROR\",\"message\":\"The user identified by  and the password is not found.\"}]")
             {
                 Console.WriteLine("Wrong the ID or Password!!");
+                return false;
             }
             else
             {
                 Console.WriteLine(result);
                 Console.WriteLine();
+                return true;
             }
             /***
             //問題取得用
