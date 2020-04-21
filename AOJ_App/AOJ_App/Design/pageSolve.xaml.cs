@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using AOJ_App.Compile;
+using AOJ_App.Editor;
 
 namespace AOJ_App.Design
 {

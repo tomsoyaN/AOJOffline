@@ -15,17 +15,18 @@ namespace AOJ_App.Editor
     {
         ICSharpCode.AvalonEdit.TextEditor editor;
         private CompletionWindow completewind;
-        private Block txts;
-        private Block curblock;
+        private Block2 txts;
+        private Block2 curblock;
         private const int nil = Int32.MinValue;
         private int length = 0;
+
         public codeeditor(ICSharpCode.AvalonEdit.TextEditor e)
         {
             editor = e;
             editor.TextArea.TextEntered += TextArea_TextEntered;
             editor.TextArea.TextEntering += TextArea_TextEntering;
             editor.TextArea.SelectionChanged += TextArea_SelectionChanged;
-            txts = new Block(null,nil,nil,nil,nil,0);
+            txts = new Block2(null,null,null,0);
             curblock = txts;
         }
 
@@ -53,7 +54,6 @@ namespace AOJ_App.Editor
         private async void TextArea_TextEntered(object sender, TextCompositionEventArgs e)
         {
             curblock = GetCurBlock(editor.SelectionStart-1);
-            txts.UpdatePos(editor.Document.TextLength - length, editor.SelectionStart-1);
             if (e.Text == ".")
             {
                 completewind = new CompletionWindow(editor.TextArea);
@@ -70,26 +70,16 @@ namespace AOJ_App.Editor
                 insertText(editor.SelectionStart, ")");
             } else if (e.Text == "{")
             {
-                
-                txts.UpdatePos(3+curblock.depth, editor.SelectionStart-1);
-                txts.UpdateLineNum(2,editor.SelectionStart-1);
-                curblock.blocks.Add(new Block(curblock, editor.SelectionStart - 1, editor.SelectionStart+2+curblock.depth, GetCurrentLineNum(), GetCurrentLineNum()+2, curblock.depth + 1));
-                string tab = "";
+                Block2 test = new Block2(null, editor.Document.CreateAnchor(editor.SelectionStart - 1), editor.Document.CreateAnchor(editor.SelectionStart),curblock.depth+1);
+                string tab = "\n\n";
                 for (int i = 0; i < curblock.depth;++i) tab += '\t';
-                insertText(editor.SelectionStart, "\n\n"+tab+"}");
-            } else if (e.Text == "\n")
-            {
-                txts.UpdatePos(GetPrevTabCount(), editor.SelectionStart - 1);
-                txts.UpdateLineNum(1,editor.SelectionStart-1);
+                editor.Document.Insert(editor.SelectionStart,tab + "}");
+                test.end = editor.Document.CreateAnchor(editor.SelectionStart-1);
+                curblock.blocks.Add(test);
             } else if (e.Text == "$")
             {
                 System.Diagnostics.Debug.WriteLine(editor.SelectionStart);
-            } else if(e.Text == "\t")
-            {
-                System.Diagnostics.Debug.WriteLine("aaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-                txts.UpdatePos(1, editor.SelectionStart - 1);
             }
-            length = editor.Document.TextLength;
         }
 
         private void Document_Changed()
@@ -118,15 +108,15 @@ namespace AOJ_App.Editor
             while(editor.Text[++pos] == '\t') cnt++;
             return cnt;
         }
-        private Block GetCurBlock(int pos)
+        private Block2 GetCurBlock(int pos)
         {
             bool flag = true ;
-            Block cur = new Block(null, nil, nil, nil, nil, 0);
+            Block2 cur = new Block2(null,null,null,0);
             cur = txts;
             while (true)
             {
                 flag = true;
-                foreach (Block o in cur.blocks)
+                foreach (Block2 o in cur.blocks)
                 {             
                     if(o.startpos <= pos && o.endpos >= pos)
                     {
