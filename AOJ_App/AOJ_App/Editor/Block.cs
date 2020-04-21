@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ICSharpCode.AvalonEdit.Document;
 
-namespace AOJ_App
+namespace AOJ_App.Editor
 {
     class Block
     {
         public List<Block> blocks { get; set; }
         public Block parent { get; set; }
         public int startpos { get; set; }
+        public TextAnchor start;
+        public TextAnchor end;
         public int endpos { get; set; }
         public int startline { get; set; }
         public int endline { get; set; }

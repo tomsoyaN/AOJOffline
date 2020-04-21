@@ -9,7 +9,7 @@ using ICSharpCode.AvalonEdit.Folding;
 using ICSharpCode.AvalonEdit.Highlighting;
 using ICSharpCode.AvalonEdit.Search;
 
-namespace AOJ_App
+namespace AOJ_App.Editor
 {
     class codeeditor
     {
@@ -70,6 +70,7 @@ namespace AOJ_App
                 insertText(editor.SelectionStart, ")");
             } else if (e.Text == "{")
             {
+                
                 txts.UpdatePos(3+curblock.depth, editor.SelectionStart-1);
                 txts.UpdateLineNum(2,editor.SelectionStart-1);
                 curblock.blocks.Add(new Block(curblock, editor.SelectionStart - 1, editor.SelectionStart+2+curblock.depth, GetCurrentLineNum(), GetCurrentLineNum()+2, curblock.depth + 1));
@@ -89,6 +90,11 @@ namespace AOJ_App
                 txts.UpdatePos(1, editor.SelectionStart - 1);
             }
             length = editor.Document.TextLength;
+        }
+
+        private void Document_Changed()
+        {
+
         }
         private int GetCurrentLineNum()
         {

@@ -9,7 +9,7 @@ using ICSharpCode.AvalonEdit.Editing;
 
 
 
-namespace AOJ_App
+namespace AOJ_App.Editor
 
 {
 

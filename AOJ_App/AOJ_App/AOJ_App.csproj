@@ -87,10 +87,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Block.cs" />
-    <Compile Include="codeeditor.cs" />
+    <Compile Include="Editor\Block.cs" />
+    <Compile Include="Editor\codeeditor.cs" />
     <Compile Include="Compile\Compile.cs" />
-    <Compile Include="CompletionData.cs" />
+    <Compile Include="Editor\CompletionData.cs" />
     <Compile Include="Design\pageLogin.xaml.cs">
       <DependentUpon>pageLogin.xaml</DependentUpon>
     </Compile>
