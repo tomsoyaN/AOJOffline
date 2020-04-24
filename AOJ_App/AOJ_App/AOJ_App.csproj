@@ -87,6 +87,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Editor\Block2.cs" />
     <Compile Include="Editor\Block.cs" />
     <Compile Include="Editor\codeeditor.cs" />
     <Compile Include="Compile\Compile.cs" />
