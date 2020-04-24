@@ -64,7 +64,7 @@ namespace AOJ_App.Editor
 
         private async void TextArea_TextEntered(object sender, TextCompositionEventArgs e)
         {
-            aacurblock = GetCurBlock(editor.SelectionStart-1);
+            curblock = GetCurBlock(editor.SelectionStart-1);
             if (e.Text == ".")
             {
                 completewind = new CompletionWindow(editor.TextArea);
