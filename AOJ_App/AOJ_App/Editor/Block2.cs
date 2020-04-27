@@ -7,7 +7,7 @@ using ICSharpCode.AvalonEdit.Document;
 
 namespace AOJ_App.Editor
 {
-    class Block2
+    class Block2 : IDisposable
     {
         static public readonly int ACTIVE = 1;
         static public readonly int DEACTIVE = 0;
@@ -20,7 +20,7 @@ namespace AOJ_App.Editor
 
         public int startpos
         {
-            get{ return this.start.Offset; }
+            get { return this.start.Offset; }
         }
         public int endpos
         {
@@ -29,7 +29,7 @@ namespace AOJ_App.Editor
 
         public int state
         {
-            get { return this.m_state;}
+            get { return this.m_state; }
             set { this.m_state = state; }
         }
         public Block2(Block2 par, TextAnchor s, TextAnchor e, int d)
@@ -42,5 +42,10 @@ namespace AOJ_App.Editor
             m_state = ACTIVE;
         }
 
+        public void Dispose()
+        {
+            this.parent.blocks.Remove(this);
+            
+        }
     }
 }

@@ -34,11 +34,14 @@ namespace AOJ_App.Editor
 
         private void Document_Changed(object sender, DocumentChangeEventArgs e)
         {
-            if (e.RemovedText.Text.Contains("}"))
+            if (e.RemovedText.Text.Contains("}")
             {
                 int offset = e.Offset - e.RemovalLength + e.RemovedText.Text.IndexOf("}");
-                Block2 block = GetCurBlock(offset);
-                block.state = Block2.DEACTIVE;
+                Block2 block = GetCurBlock(offset,false);
+                if(block.state == Block2.DEACTIVE)
+                {
+                    block.Dispose();
+                } 
 
             }
         }
@@ -64,7 +67,7 @@ namespace AOJ_App.Editor
 
         private async void TextArea_TextEntered(object sender, TextCompositionEventArgs e)
         {
-            aacurblock = GetCurBlock(editor.SelectionStart-1);
+            curblock = GetCurBlock(editor.SelectionStart-1,true);
             if (e.Text == ".")
             {
                 completewind = new CompletionWindow(editor.TextArea);
@@ -115,7 +118,7 @@ namespace AOJ_App.Editor
             while(editor.Text[++pos] == '\t') cnt++;
             return cnt;
         }
-        private Block2 GetCurBlock(int pos)
+        private Block2 GetCurBlock(int pos,bool onlyACTIVE)
         {
             bool flag = true ;
             Block2 cur = new Block2(null,null,null,0);
@@ -125,6 +128,7 @@ namespace AOJ_App.Editor
                 flag = true;
                 foreach (Block2 o in cur.blocks)
                 {
+                    bool isACTIVE = onlyACTIVE == true ? o.state == Block2.ACTIVE : true;
                     if (o.startpos <= pos && o.endpos >= pos && o.state == Block2.ACTIVE) 
                     {
                             flag = false;
