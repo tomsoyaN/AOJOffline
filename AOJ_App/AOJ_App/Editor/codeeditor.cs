@@ -17,7 +17,8 @@ namespace AOJ_App.Editor
         ICSharpCode.AvalonEdit.TextEditor editor;
         private CompletionWindow completewind;
         private Block2 txts;
-        private Block2 curblock;
+        private HighLightRenderer highLightRenderer;
+        public Block2 curblock;
         private const int nil = Int32.MinValue;
         private int length = 0;
 
@@ -30,15 +31,28 @@ namespace AOJ_App.Editor
             editor.Document.Changed += Document_Changed;
             txts = new Block2(null,null,null,0);
             curblock = txts;
+            highLightRenderer = new HighLightRenderer();
+            editor.TextArea.TextView.BackgroundRenderers.Add(highLightRenderer);
+            highLightRenderer.curblock = this.curblock;
         }
 
         private void Document_Changed(object sender, DocumentChangeEventArgs e)
         {
-            if (e.RemovedText.Text.Contains("}"))
+            curblock = GetCurBlock(editor.SelectionStart - 1, true);
+            highLightRenderer.curblock = this.curblock;
+            if (e.RemovedText.Text.Contains("}") || e.RemovedText.Text.Contains("{"))
             {
-                int offset = e.Offset - e.RemovalLength + e.RemovedText.Text.IndexOf("}");
-                Block2 block = GetCurBlock(offset);
-                block.state = Block2.DEACTIVE;
+                string target = e.RemovedText.Text.Contains("}") ? "{" : "}";
+                int offset = e.Offset - e.RemovalLength + e.RemovedText.Text.IndexOf(target);
+                Block2 block = GetCurBlock(offset,true);
+                if (block.state == Block2.ACTIVE)
+                {
+                    block.TurnDEACTIVE(target);
+                }
+                else
+                {
+                    block.Dispose();
+                }
 
             }
         }
@@ -64,7 +78,7 @@ namespace AOJ_App.Editor
 
         private async void TextArea_TextEntered(object sender, TextCompositionEventArgs e)
         {
-            aacurblock = GetCurBlock(editor.SelectionStart-1);
+            curblock = GetCurBlock(editor.SelectionStart-1,true);
             if (e.Text == ".")
             {
                 completewind = new CompletionWindow(editor.TextArea);
@@ -81,12 +95,19 @@ namespace AOJ_App.Editor
                 insertText(editor.SelectionStart, ")");
             } else if (e.Text == "{")
             {
-                Block2 test = new Block2(null, editor.Document.CreateAnchor(editor.SelectionStart - 1), editor.Document.CreateAnchor(editor.SelectionStart),curblock.depth+1);
-                string tab = "\n\n";
-                for (int i = 0; i < curblock.depth;++i) tab += '\t';
-                editor.Document.Insert(editor.SelectionStart,tab + "}");
-                test.end = editor.Document.CreateAnchor(editor.SelectionStart-1);
-                curblock.blocks.Add(test);
+                curblock = GetCurBlock(editor.SelectionStart - 1, false);
+                if (curblock.state != Block2.DEACTIVE)
+                {
+                    Block2 test = new Block2(null, editor.Document.CreateAnchor(editor.SelectionStart - 1), editor.Document.CreateAnchor(editor.SelectionStart), curblock.depth + 1);
+                    string tab = "\n\n";
+                    for (int i = 0; i < curblock.depth; ++i) tab += '\t';
+                    editor.Document.Insert(editor.SelectionStart, tab + "}");
+                    test.end = editor.Document.CreateAnchor(editor.SelectionStart - 1);
+                    curblock.blocks.Add(test);
+                } else
+                {
+
+                }
             } else if (e.Text == "$")
             {
                 System.Diagnostics.Debug.WriteLine(editor.SelectionStart);
@@ -115,7 +136,7 @@ namespace AOJ_App.Editor
             while(editor.Text[++pos] == '\t') cnt++;
             return cnt;
         }
-        private Block2 GetCurBlock(int pos)
+        private Block2 GetCurBlock(int pos,bool onlyACTIVE)
         {
             bool flag = true ;
             Block2 cur = new Block2(null,null,null,0);
@@ -125,7 +146,9 @@ namespace AOJ_App.Editor
                 flag = true;
                 foreach (Block2 o in cur.blocks)
                 {
-                    if (o.startpos <= pos && o.endpos >= pos && o.state == Block2.ACTIVE) 
+                    if()
+                    bool isACTIVE = onlyACTIVE == true ? (o.state == Block2.ACTIVE) : true;
+                    if (o.startpos <= pos && o.endpos >= pos && isACTIVE) 
                     {
                             flag = false;
                             cur = o;

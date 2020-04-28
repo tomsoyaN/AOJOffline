@@ -98,6 +98,7 @@
     <Compile Include="Design\pageSolve.xaml.cs">
       <DependentUpon>pageSolve.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Editor\HighLightRenderer.cs" />
     <Compile Include="global.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
