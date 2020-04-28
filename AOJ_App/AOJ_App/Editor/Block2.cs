@@ -20,7 +20,7 @@ namespace AOJ_App.Editor
 
         public int startpos
         {
-            get{ return this.start.Offset; }
+            get { return this.start.Offset; }
         }
         public int endpos
         {
@@ -29,7 +29,7 @@ namespace AOJ_App.Editor
 
         public int state
         {
-            get { return this.m_state;}
+            get { return this.m_state; }
             set { this.m_state = state; }
         }
         public Block2(Block2 par, TextAnchor s, TextAnchor e, int d)
