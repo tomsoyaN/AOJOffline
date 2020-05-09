@@ -163,5 +163,8 @@
     <Content Include="Problem\json_data1.py" />
     <Content Include="Problem\json_data2.py" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Design\Problem_Design\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

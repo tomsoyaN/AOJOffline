@@ -4,16 +4,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:mui="http://firstfloorsoftware.com/ModernUI"
-             mc:Ignorable="d" 
-             d:DesignHeight="300" Width="609.821">
-    <Grid Style="{StaticResource ContentRoot}">
+             mc:Ignorable="d" Width="989.732" Height="384.509">
+    <Grid Style="{StaticResource ContentRoot}" Margin="16,28,-111,16">
         <!-- TODO: set @SelectedSource -->
-        <mui:ModernTab SelectedSource="/1" Layout="List">
+        <mui:ModernTab SelectedSource="/" Layout="List" Margin="0,0,0,25">
             <mui:ModernTab.Links>
                 <!-- TODO: set @Source -->
-                <mui:Link DisplayName="topic 1" Source="/1"/>
-                <mui:Link DisplayName="topic 2" Source="/1"/>
-                <mui:Link DisplayName="topic 3" Source="/1"/>
+                <mui:Link DisplayName="topic 1" Source="/Design/ChooseProblem.xaml"/>
+                <mui:Link DisplayName="topic 2" Source="ああ"/>
+                <mui:Link DisplayName="topic 3" Source="\Design\ChooseProblem.xaml"/>
                 <mui:Link DisplayName="topic 4" Source="/1"/>
                 <mui:Link DisplayName="topic 5" Source="/1" />
                 <mui:Link DisplayName="topic 6" Source="/1"/>
@@ -23,9 +22,8 @@
                 <mui:Link DisplayName="topic 10" Source="/1"/>
                 <mui:Link DisplayName="topic 11" Source="/1"/>
             </mui:ModernTab.Links>
-
-
-
         </mui:ModernTab>
+        <mui:ModernButton x:Name ="btn_ChooseProblem" Content="Select" Margin="905,166,-531,-166"  />
+        
     </Grid>
 </UserControl>

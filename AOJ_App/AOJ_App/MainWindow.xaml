@@ -2,11 +2,11 @@
   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
   xmlns:mui="http://firstfloorsoftware.com/ModernUI"
-  Title="MainWindow" Height="350" Width="525">
+  Title="MainWindow" Height="500" Width="800">
     <mui:ModernWindow.MenuLinkGroups>
         <mui:LinkGroup DisplayName="group 1" >
             <mui:LinkGroup.Links>
-                <mui:Link DisplayName="link 1" Source="/Design/pageLogin.xaml" />
+                <mui:Link DisplayName="link 1" Source="/Design/pageSolve.xaml" />
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
     </mui:ModernWindow.MenuLinkGroups>

@@ -6,12 +6,12 @@
              xmlns:mui="http://firstfloorsoftware.com/ModernUI"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Grid Margin="0,0,104,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="213*"/>
             <ColumnDefinition Width="587*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Margin="10,10,-10,-10" Grid.ColumnSpan="2">
+        <StackPanel Margin="10,10,137,-10" Grid.ColumnSpan="2">
             <StackPanel>
                 <Label Content="UserID" Target="{Binding ElementName=TextFirstName}"/>
                 <TextBox x:Name="txtID" Width="150" Text="{Binding FirstName, Mode=TwoWay, ValidatesOnDataErrors=True}" />
@@ -24,9 +24,9 @@
             <StackPanel Height="384" >
                 <ListBox Height="100"
                      Grid.Row="0" 
-                     ItemsSource="{Binding Problem/ITP1.csv}" />
+                     ItemsSource="{Binding Problem/ITP1_1_A_Problem.html}" />
+                <mui:ModernButton x:Name ="btn_Choose" Content="Button" Height="81"/>
             </StackPanel>
         </StackPanel>
-        <mui:ModernButton x:Name ="btn_ChooseProblem" Content="Login"  Grid.Column="1" Margin="450,176,-76,-176" Click="Btn_Choose_ClickAsync" />
     </Grid>
 </UserControl>

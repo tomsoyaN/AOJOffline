@@ -10,21 +10,29 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Page1">
 
+    <StackPanel Margin="0,0,0,-350" Grid.ColumnSpan="2">
+        <Grid Margin="0,0,0,-341">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="319*"/>
+                <ColumnDefinition Width="481*"/>
+            </Grid.ColumnDefinitions>
 
-    <Grid>
-        <avalonEdit:TextEditor
+
+            <avalonEdit:TextEditor
 				Name="editor"
 				FontFamily="Consolas"
 				FontSize="10pt"
-				SyntaxHighlighting="C++" Height="325" VerticalAlignment="Top" ShowLineNumbers="True" Margin="10,57,0,0" 
+				SyntaxHighlighting="C++" Height="325" VerticalAlignment="Top" ShowLineNumbers="True" Margin="10,385,0,-260" Grid.ColumnSpan="2" 
 			>
-        </avalonEdit:TextEditor>
-        <TextBlock Text="Solve Problem" Style="{StaticResource Heading2}" Margin="10,20,431,398" />
+            </avalonEdit:TextEditor>
+            <TextBlock Text="Solve Problem" Style="{StaticResource Heading2}" Margin="10,20,431,398" Grid.ColumnSpan="2" />
 
-        <mui:BBCodeBlock BBCode="Icons courtesy of [url=http://modernuiicons.com/]Modern UI Icons[/url]" Margin="630,10,24,406" />
+            <mui:BBCodeBlock BBCode="Icons courtesy of [url=http://modernuiicons.com/]Modern UI Icons[/url]" Margin="311,10,24,406" Grid.Column="1" />
 
-        <mui:ModernButton Name ="btn_Submit" Content="Submit"  Margin="668,396,10,10" Click="Btn_Submit_ClickAsync" />
-        <mui:ModernButton Name ="btn_Debug" Content="Debug"  Margin="523,396,155,10" Click="Btn_Debug_Click" />
+            <mui:ModernButton Name ="btn_Submit" Content="Submit"  Margin="337,741,22,-335" Click="Btn_Submit_ClickAsync" Grid.Column="1" />
+            <mui:ModernButton Name ="btn_Debug" Content="Debug"  Margin="215,741,144,-335" Click="Btn_Debug_Click" Grid.Column="1" />
+            <TextBlock HorizontalAlignment="Left" Margin="25,57,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="323" Width="753" Grid.ColumnSpan="2"/>
 
-    </Grid>
+        </Grid>
+    </StackPanel>
 </Page>

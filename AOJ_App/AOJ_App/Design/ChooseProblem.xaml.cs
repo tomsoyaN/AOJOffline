@@ -24,11 +24,15 @@ namespace AOJ_App.Design
         {
             InitializeComponent();
         }
-        private async void Btn_Choose_ClickAsync(object sender, RoutedEventArgs e)//ログインボタン@tom
+        /*** よくわからないので修正お願いします。
+        private async void Btn_Choose_ClickAsync(object sender, RoutedEventArgs e) //問題表示@kurikinton
         {
             
-
+            var url = "/Design/pageSolve.xaml";
+            var bb = new BBCodeBlock();
+            bb.LinkNavigator.Navigate(new Uri(url, UriKind.Relative), this);
 
         }
+        ***/
     }
 }
