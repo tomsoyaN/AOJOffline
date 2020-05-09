@@ -11,16 +11,21 @@
             <ColumnDefinition Width="213*"/>
             <ColumnDefinition Width="587*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Margin="0,172,0,-172" Grid.ColumnSpan="2">
+        <StackPanel Margin="10,10,-10,-10" Grid.ColumnSpan="2">
             <StackPanel>
                 <Label Content="UserID" Target="{Binding ElementName=TextFirstName}"/>
                 <TextBox x:Name="txtID" Width="150" Text="{Binding FirstName, Mode=TwoWay, ValidatesOnDataErrors=True}" />
             </StackPanel>
             <StackPanel >
-                <Label Content="Password" Target="{Binding ElementName=TextLastName}"/>
+                <Label Content="Passwordはいりました" Target="{Binding ElementName=TextLastName}"/>
                 <TextBox x:Name="txtPass" Width="150" Text="{Binding LastName, Mode=TwoWay, ValidatesOnDataErrors=True}"/>
+                
             </StackPanel>
-
+            <StackPanel Height="384" >
+                <ListBox Height="100"
+                     Grid.Row="0" 
+                     ItemsSource="{Binding Problem/ITP1.csv}" />
+            </StackPanel>
         </StackPanel>
         <mui:ModernButton x:Name ="btn_Choose" Content="Login"  Grid.Column="1" Margin="373.667,61,0,-61" Click="Btn_Choose_ClickAsync" />
     </Grid>

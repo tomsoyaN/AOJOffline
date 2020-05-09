@@ -31,12 +31,19 @@ namespace AOJ_App.Design
         private async void Btn_Login_ClickAsync(object sender, RoutedEventArgs e)//ログインボタン@tom
         {
             var login = await global.net.Login(txtID.Text,txtPass.Text);
+            Console.WriteLine(login);
             if (login)
             {
-                var url = "/Design/pageSolve.xaml";
+                var url = "/Design/ChooseProblem.xaml";
                 var bb = new BBCodeBlock();
                 bb.LinkNavigator.Navigate(new Uri(url, UriKind.Relative), this);
                 // You may want to set some property in that page's ViewModel, for example, indicating the selected User ID.
+            }
+            else if (login == false)
+            {
+                var url = "/Design/pageLogin.xaml"; //Login出来なかったとき用@kurikinton
+                var bb = new BBCodeBlock();
+                bb.LinkNavigator.Navigate(new Uri(url, UriKind.Relative), this);
             }
 
         }

@@ -17,16 +17,20 @@ namespace AOJ_App.Network
         public async Task<bool> Login(string user, string password)//ログインメソッド@tom
         {
 
-            var result = await obj.LoginAsync(user, password);
-            if (result == "[{\"id\":1401,\"code\":\"USER_NOT_FOUND_ERROR\",\"message\":\"The user identified by  and the password is not found.\"}]")
+            string result = await obj.LoginAsync(user, password);
+            string[] result1 = result.Split(',');
+            Console.WriteLine(result1[0]);
+            string wrongpass = "[{\"id\":1401";
+            Console.WriteLine(wrongpass);
+            if (result1[0] == wrongpass)
             {
-                Console.WriteLine("Wrong the ID or Password!!");
+                Console.WriteLine("Wrong the ID or Password!!"); //パスワードのエラー
                 return false;
             }
             else
             {
                 Console.WriteLine(result);
-                Console.WriteLine();
+                Console.WriteLine("パスワードが正しく処理されました");
                 return true;
             }
             /***
