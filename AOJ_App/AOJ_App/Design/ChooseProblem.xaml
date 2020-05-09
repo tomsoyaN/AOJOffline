@@ -27,6 +27,6 @@
                      ItemsSource="{Binding Problem/ITP1.csv}" />
             </StackPanel>
         </StackPanel>
-        <mui:ModernButton x:Name ="btn_Choose" Content="Login"  Grid.Column="1" Margin="373.667,61,0,-61" Click="Btn_Choose_ClickAsync" />
+        <mui:ModernButton x:Name ="btn_ChooseProblem" Content="Login"  Grid.Column="1" Margin="450,176,-76,-176" Click="Btn_Choose_ClickAsync" />
     </Grid>
 </UserControl>

@@ -34,16 +34,17 @@ namespace AOJ_App.Design
             Console.WriteLine(login);
             if (login)
             {
-                var url = "/Design/ChooseProblem.xaml";
+                var url = "/Design/ListPage1.xaml";
                 var bb = new BBCodeBlock();
                 bb.LinkNavigator.Navigate(new Uri(url, UriKind.Relative), this);
                 // You may want to set some property in that page's ViewModel, for example, indicating the selected User ID.
             }
             else if (login == false)
             {
-                var url = "/Design/pageLogin.xaml"; //Login出来なかったとき用@kurikinton
+                var url = "/Design/pageLogin.xaml"; //Login出来なかったとき用@kurikinton、ページ作成お願いします。
                 var bb = new BBCodeBlock();
                 bb.LinkNavigator.Navigate(new Uri(url, UriKind.Relative), this);
+                Console.WriteLine("ログインページにもどります");
             }
 
         }

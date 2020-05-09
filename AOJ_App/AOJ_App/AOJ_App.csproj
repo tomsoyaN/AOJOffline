@@ -76,6 +76,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Design\ListPage1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Design\pageLogin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -98,6 +102,9 @@
     </Compile>
     <Compile Include="Design\ChooseProblem.xaml.cs">
       <DependentUpon>ChooseProblem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Design\ListPage1.xaml.cs">
+      <DependentUpon>ListPage1.xaml</DependentUpon>
     </Compile>
     <Compile Include="Design\pageProblem.xaml.cs">
       <DependentUpon>pageProblem.xaml</DependentUpon>

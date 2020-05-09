@@ -19,9 +19,7 @@ namespace AOJ_App.Network
 
             string result = await obj.LoginAsync(user, password);
             string[] result1 = result.Split(',');
-            Console.WriteLine(result1[0]);
-            string wrongpass = "[{\"id\":1401";
-            Console.WriteLine(wrongpass);
+            string wrongpass = "[{\"id\":1401"; //返答文字列を分割することでログインエラーを認知する@kurikinton
             if (result1[0] == wrongpass)
             {
                 Console.WriteLine("Wrong the ID or Password!!"); //パスワードのエラー
@@ -29,7 +27,6 @@ namespace AOJ_App.Network
             }
             else
             {
-                Console.WriteLine(result);
                 Console.WriteLine("パスワードが正しく処理されました");
                 return true;
             }

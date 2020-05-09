@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="AOJ_App.Design.ListPage1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" Width="609.821">
+    <Grid Style="{StaticResource ContentRoot}">
+        <!-- TODO: set @SelectedSource -->
+        <mui:ModernTab SelectedSource="/1" Layout="List">
+            <mui:ModernTab.Links>
+                <!-- TODO: set @Source -->
+                <mui:Link DisplayName="topic 1" Source="/1"/>
+                <mui:Link DisplayName="topic 2" Source="/1"/>
+                <mui:Link DisplayName="topic 3" Source="/1"/>
+                <mui:Link DisplayName="topic 4" Source="/1"/>
+                <mui:Link DisplayName="topic 5" Source="/1" />
+                <mui:Link DisplayName="topic 6" Source="/1"/>
+                <mui:Link DisplayName="topic 7" Source="/1"/>
+                <mui:Link DisplayName="topic 8" Source="/1"/>
+                <mui:Link DisplayName="topic 9" Source="/1"/>
+                <mui:Link DisplayName="topic 10" Source="/1"/>
+                <mui:Link DisplayName="topic 11" Source="/1"/>
+            </mui:ModernTab.Links>
+
+
+
+        </mui:ModernTab>
+    </Grid>
+</UserControl>
