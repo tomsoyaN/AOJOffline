@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="AOJ_App.Design.Problem_Design.ITP1_1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             mc:Ignorable="d" Height="266.964" Width="432.144">
+    <Grid Style="{StaticResource ContentRoot}" Margin="16,28,-32,16">
+        <ScrollViewer Margin="-224,-10,80,10">
+            <StackPanel MinWidth="200" Width="664">
+                <TextBlock Text="ITP1_1" Style="{StaticResource Heading2}" />
+                <TextBlock />
+                <Button Content="1__A:Hello World" Height="39" HorizontalContentAlignment="Left" Margin="21,0,157,0"/>
+                <Button Content="1__B:x の 3 乗" Height="39" HorizontalContentAlignment="Left" Margin="21,0,157,0"/>
+                <Button Content="1__C:長方形の面積と周の長さ" Height="39" HorizontalContentAlignment="Left" Margin="21,0,157,0"/>
+                <Button Content="1__D:時計" Height="39" HorizontalContentAlignment="Left" Margin="21,0,157,0"/>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

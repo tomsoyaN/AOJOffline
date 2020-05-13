@@ -10,7 +10,7 @@
         <mui:ModernTab SelectedSource="/" Layout="List" Margin="0,0,0,25">
             <mui:ModernTab.Links>
                 <!-- TODO: set @Source -->
-                <mui:Link DisplayName="topic 1" Source="/Design/ChooseProblem.xaml"/>
+                <mui:Link DisplayName="topic 1" Source="/Design/Problem_Design/ITP1_1.xaml"/>
                 <mui:Link DisplayName="topic 2" Source="ああ"/>
                 <mui:Link DisplayName="topic 3" Source="\Design\ChooseProblem.xaml"/>
                 <mui:Link DisplayName="topic 4" Source="/1"/>

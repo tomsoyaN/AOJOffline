@@ -6,7 +6,7 @@
     <mui:ModernWindow.MenuLinkGroups>
         <mui:LinkGroup DisplayName="group 1" >
             <mui:LinkGroup.Links>
-                <mui:Link DisplayName="link 1" Source="/Design/pageSolve.xaml" />
+                <mui:Link DisplayName="link 1" Source="Design/pageLogin.xaml" />
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
     </mui:ModernWindow.MenuLinkGroups>
