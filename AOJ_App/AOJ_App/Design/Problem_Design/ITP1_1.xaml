@@ -6,14 +6,14 @@
              xmlns:mui="http://firstfloorsoftware.com/ModernUI"
              mc:Ignorable="d" Height="266.964" Width="432.144">
     <Grid Style="{StaticResource ContentRoot}" Margin="16,28,-32,16">
-        <ScrollViewer Margin="-224,-10,80,10">
+        <ScrollViewer Margin="-224,-10,139,10">
             <StackPanel MinWidth="200" Width="664">
                 <TextBlock Text="ITP1_1" Style="{StaticResource Heading2}" />
                 <TextBlock />
-                <Button Content="1__A:Hello World" Height="39" HorizontalContentAlignment="Left" Margin="21,0,157,0"/>
-                <Button Content="1__B:x の 3 乗" Height="39" HorizontalContentAlignment="Left" Margin="21,0,157,0"/>
-                <Button Content="1__C:長方形の面積と周の長さ" Height="39" HorizontalContentAlignment="Left" Margin="21,0,157,0"/>
-                <Button Content="1__D:時計" Height="39" HorizontalContentAlignment="Left" Margin="21,0,157,0"/>
+                <Button x:Name="A" Content="1__A:Hello World" Height="39" HorizontalContentAlignment="Left" Margin="21,0,223,0"/>
+                <Button x:Name="B" Content="1__B:x の 3 乗" Height="39" HorizontalContentAlignment="Left" Margin="21,0,223,0"/>
+                <Button x:Name="C" Content="1__C:長方形の面積と周の長さ" Height="39" HorizontalContentAlignment="Left" Margin="21,0,223,0"/>
+                <Button x:Name="D" Content="1__D:時計" Height="39" HorizontalContentAlignment="Left" Margin="21,0,223,0"/>
             </StackPanel>
         </ScrollViewer>
     </Grid>
